@@ -1,1 +1,1 @@
-module.exports = { prefix: "client_User_", description: "" };
+module.exports = { prefix: "client_Users_", description: "" };

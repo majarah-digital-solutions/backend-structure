@@ -11,7 +11,10 @@ module.exports = gql`
     text: JSON
     language: Language
   }
-
+  input Pagination {
+    limit:Int
+    page: Int
+}
 
   type Language {
     _id: ID
@@ -25,25 +28,14 @@ module.exports = gql`
     _id: ID
     fullname: String
     phone: String
+    role:String
     avatar: String
     status: String
     blocked: Boolean
     verfied: Boolean
     activated: Boolean
     deleted: Boolean
-    scm_token: String
   }
-
-  type UserInfo {
-    _id: ID
-    fullname: String
-    phone: String
-    avatarUrl: String
-  }
-
-
-
-
 
 
 
@@ -52,6 +44,24 @@ module.exports = gql`
     message: String
     data: JSON
     token: String
+  }
+
+
+  type App {
+    _id: ID
+    name: String
+    description: String
+    logo: String
+    user: User
+    branch:Branch
+  }
+  type Branch {
+    _id: ID
+    title: String
+    description: String
+    icon: String
+    parent:Branch
+    isMain:Boolean
   }
 
   ${adminSchemas}

@@ -4,7 +4,6 @@ const TranslationSchema = require("./translation.schema");
 const LanguageSchema = new mongoose.Schema(
   {
     title: { type: String, required: true },
-    old_id: { type: Number, required: false },
     translations: {
       title: TranslationSchema,
     },

@@ -1,11 +1,10 @@
 const mongoose = require("mongoose");
-const { cdn } = require("../../config/constants");
-
-const ObjectId = mongoose.Schema.Types.ObjectId;
+const { cdn, USERS_ROLES } = require("../../config/constants");
 
 const UserSchema = new mongoose.Schema(
   {
     fullname: { type: String, required: true },
+    role:{ type: String, default:USERS_ROLES.USER},
     password: { type: String, required: true },
     phone: { type: String, required: true },
     avatar: { type: String, required: false, default: "avatar.png" },

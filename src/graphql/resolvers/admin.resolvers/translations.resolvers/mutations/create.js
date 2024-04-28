@@ -25,7 +25,7 @@ module.exports = async (
       (item) => item.language.toString() === language
     );
     if (lastTrans.length > 0) {
-      return new ApolloError("الترجمة لهذه اللغة موجود من فبل");
+      return new ApolloError("الترجمة لهذه اللغة موجود من قبل");
     }
     data.translations.push({
       text: text,

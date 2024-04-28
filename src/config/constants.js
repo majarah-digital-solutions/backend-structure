@@ -19,8 +19,7 @@ module.exports = {
   },
   USERS_ROLES: {
     USER: "USER",
-    GENERAL_MANAGER: "GENERAL_MANAGER",
-    BRANCH_MANAGER: "BRANCH_MANAGER",
+    ADMIN: "ADMIN",
   },
   CRUDStatus: {
     REMOVED: "REMOVED",

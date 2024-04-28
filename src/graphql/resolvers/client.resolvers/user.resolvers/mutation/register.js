@@ -30,8 +30,8 @@ module.exports = async (
         fullname:userName,
       });
       //* Token Data
-      const { _id, fullname, phone } = user;
-      const userData = {_id ,fullname,phone};
+      const { _id, fullname, phone ,role} = user;
+      const userData = {_id ,fullname,phone,role};
 
       return {
         success: true,

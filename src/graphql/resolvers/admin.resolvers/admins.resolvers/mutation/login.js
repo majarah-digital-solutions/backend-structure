@@ -3,6 +3,7 @@ const { User } = require("../../../../../models");
 var md5 = require("crypto-js/md5");
 const { jwtSign } = require("../../../../../utilities/helpers/encryption");
 const phoneNumbers = require("../../../../../utilities/formatters/phoneNumbers");
+const { USERS_ROLES } = require("../../../../../config/constants");
 
 module.exports = async (_, { loginData: { phoneNumber, password } }, ctx) => {
 
@@ -17,7 +18,7 @@ module.exports = async (_, { loginData: { phoneNumber, password } }, ctx) => {
     });
 
     if(!user)   return new ApolloError(" خطا في رقم الهاتف  او كلمة المرور");
-  
+    if(user.role != USERS_ROLES.ADMIN) return new ApolloError('ليس لديك الصلاحيات')
     
     const { _id, fullname, phone ,role } = user;
           const userData = {

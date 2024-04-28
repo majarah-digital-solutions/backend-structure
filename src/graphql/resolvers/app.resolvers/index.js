@@ -1,8 +1,8 @@
 const lodash = require("lodash");
 
-const authResolvers = require("./auth.resolvers/index.js");
+const appsResolvers = require("./apps.resolvers/index.js");
 
 module.exports = lodash.merge(
-  authResolvers,
+  appsResolvers,
 
 );
