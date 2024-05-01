@@ -6,7 +6,8 @@ const {
   settingSchema,
   languageSchema,
   appSchema,
-  branchSchema
+  branchSchema,
+  categorySchema
   
 } = require("./schemas");
 
@@ -19,5 +20,6 @@ module.exports = {
   Language: mongoose.model("Language", languageSchema),
   App: mongoose.model("App", appSchema),
   Branch: mongoose.model("Branch", branchSchema),
+  Category: mongoose.model("Category", categorySchema),
 
 };

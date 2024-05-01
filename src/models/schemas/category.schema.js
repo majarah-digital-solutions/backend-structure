@@ -8,7 +8,7 @@ const categorySchema = new mongoose.Schema({
   },
   icon: {
     type: String,
-    // required: true
+    default:'icon.png'
   },
   description: {
     type: String,
@@ -16,8 +16,14 @@ const categorySchema = new mongoose.Schema({
   },
   status: {
     type: String,
+    enum:Object.values(categoryStatus),
     default: categoryStatus.AVAILABLE
-  }, 
+  },
+  app:{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'App',
+    required: true
+  }
 },{timestamps:true});
 
 module.exports = categorySchema;

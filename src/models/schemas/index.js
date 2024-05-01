@@ -6,6 +6,7 @@ const settingSchema = require("./settings.schema.js");
 const languageSchema = require("./language.schema.js");
 const appSchema = require("./app.schema.js");
 const branchSchema = require("./branch.schema.js");
+const categorySchema = require("./category.schema.js");
 
 module.exports = {
   translationSchema,
@@ -14,5 +15,6 @@ module.exports = {
   settingSchema,
   languageSchema,
   appSchema,
-  branchSchema
+  branchSchema,
+  categorySchema
 };

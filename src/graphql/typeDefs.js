@@ -6,7 +6,8 @@ const clientSchemas = require("./resolvers/client.resolvers/client.schemas.js");
 module.exports = gql`
   scalar JSON
   scalar DateTime
-
+  scalar Any
+  
   type Translations {
     text: JSON
     language: Language
@@ -63,6 +64,26 @@ module.exports = gql`
     parent:Branch
     isMain:Boolean
   }
+
+  type Setting {
+    _id: ID
+    key: String
+    value: SettingValue
+    private: Boolean  
+    deleted: Boolean
+    createdAt: DateTime
+    updatedAt: DateTime
+}
+
+    type SettingValue {
+        dataType: String
+        data: Any
+    }
+
+    input SettingValueInput {
+        dataType: String
+        data: Any
+    }
 
   ${adminSchemas}
   ${appSchemas}
