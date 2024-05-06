@@ -23,8 +23,8 @@ module.exports = async (
 
       return account
     } catch (error) {
-      console.error("حدث خطا اثناء عمليه التسجيل", error);
-      return new ApolloError('حدث خطأ');
+      console.log("🚀 ~ module.exports= ~ err:", err)
+      return new ApolloError("خطأ في السيرفر");
 
     }
   }

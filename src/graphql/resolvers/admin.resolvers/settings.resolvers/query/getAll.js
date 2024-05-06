@@ -1,13 +1,13 @@
 const { ApolloError } = require("apollo-server-express");
 const { Setting } = require("../../../../../models");
-const { USERS_ROLES } = require("../../../../../config/constants");
+const { USERS_ROLES, pagination } = require("../../../../../config/constants");
 
 module.exports = async (_, args, {pubsub, user}) => {   
     if(!user) return new ApolloError("يجب تسجيل الدخول أولا");
     try {
       if(user.role != USERS_ROLES.ADMIN) return new ApolloError('ليس لديك الصلاحيات')
 
-        const { page = 1, limit = 10 ,key } = args;
+        const { page = pagination.page, limit=pagination.limit ,key } = args;
         let skip = (+page - 1) * +limit;
         let query = {}
         if(key) query.key = { $regex: key, $options: 'i' }

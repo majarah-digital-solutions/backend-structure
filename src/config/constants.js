@@ -45,4 +45,8 @@ module.exports = {
     milliseconds: "milliseconds",
   },
   screenLimit: 10,
+  pagination: {
+    limit: 50,
+    page: 1
+  }
 };

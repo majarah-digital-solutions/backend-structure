@@ -3,16 +3,16 @@ const { Branch } = require("../../../../../models");
 
 const { isValidObjectId } = require("mongoose");
 
-module.exports = async (_,{ _id}, {user}) => {
+module.exports = async (_,{ id}, {user}) => {
 
   try {
-    if(!isValidObjectId(_id)) return new ApolloError("خطا في صيغة المعرف");
-    const branch = await Branch.findById(_id).populate('parent')
+    if(!isValidObjectId(id)) return new ApolloError("خطا في صيغة المعرف");
+    const branch = await Branch.findById(id).populate('parent')
     return branch
 
   } catch (error) {
-    console.error("حدث خطا اثناء عمليه التسجيل", error);
-    return new ApolloError('حدث خطأ');
+    console.log("🚀 ~ module.exports= ~ err:", err)
+    return new ApolloError("خطأ في السيرفر");
 
   }
 

@@ -1,11 +1,11 @@
 const { ApolloError } = require("apollo-server-express");
 const {  App } = require("../../../../../models");
+const { pagination } = require("../../../../../config/constants");
 
-module.exports = async (_,{ pagination: { limit, page } ,name}, {user}) => {
+module.exports = async (_,{ page = pagination.page, limit = pagination.limit ,name}, {user}) => {
 
   try {
-    if (!limit) limit = 10;
-    if (!page) page = 1;
+
     const skip = (page - 1) * limit;
     let query 
     if(name) query = {name:{$regex:name,$options: 'i'}}
@@ -13,8 +13,8 @@ module.exports = async (_,{ pagination: { limit, page } ,name}, {user}) => {
     return apps
 
   } catch (error) {
-    console.error("حدث خطا اثناء عمليه التسجيل", error);
-    return new ApolloError('حدث خطأ');
+    console.log("🚀 ~ module.exports= ~ err:", err)
+    return new ApolloError("خطأ في السيرفر");
 
   }
 };

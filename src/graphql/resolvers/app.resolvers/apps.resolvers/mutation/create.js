@@ -9,6 +9,7 @@ module.exports = async (_, { createData: {name,logo,description,branch}}, {user}
     if(!app) return new ApolloError('خطا في البيانات')
     return app;
   } catch (error) {
-    return new ApolloError("خطا في انشاء الحساب",error)
+    console.log("🚀 ~ module.exports= ~ err:", err)
+    return new ApolloError("خطأ في السيرفر");
   }
 };

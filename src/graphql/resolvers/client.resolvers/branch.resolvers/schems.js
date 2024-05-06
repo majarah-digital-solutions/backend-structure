@@ -8,7 +8,7 @@ module.exports = gql`
 
   
     type Query {
-      ${Prefixer.addPrefix("GetAll")}(pagination:Pagination): [Branch],
-      ${Prefixer.addPrefix("GetOne")}(_id:ID!): Branch,
+      ${Prefixer.addPrefix("GetAll")}(limit:Int,page:Int): [Branch],
+      ${Prefixer.addPrefix("GetOne")}(id:ID!): Branch,
   }
 `;

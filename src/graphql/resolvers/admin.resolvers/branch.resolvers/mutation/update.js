@@ -17,7 +17,8 @@ module.exports = async (_, { updateData: {_id,title,parent,description,isMain,ic
     await branch.save()
     return branch;
   } catch (error) {
-    return new ApolloError("خطا في تعديل الشعبة",error)
+    console.log("🚀 ~ module.exports= ~ err:", err)
+    return new ApolloError("خطأ في السيرفر");
   }
 
 };

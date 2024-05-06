@@ -19,7 +19,7 @@ module.exports = gql`
         description:String
     }
     type Query {
-      ${Prefixer.addPrefix("GetAll")}(pagination:Pagination):[App],
+      ${Prefixer.addPrefix("GetAll")}(limit:Int,page:Int):[App],
     }
 
     type Mutation {

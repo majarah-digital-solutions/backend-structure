@@ -19,7 +19,8 @@ module.exports = async (_, { updateData: {_id,name,logo,description,branch}}, {u
     await app.save()
     return app;
   } catch (error) {
-    return new ApolloError("خطا في تعديل الحساب",error)
+    console.log("🚀 ~ module.exports= ~ err:", err)
+    return new ApolloError("خطأ في السيرفر");
   }
 
 };

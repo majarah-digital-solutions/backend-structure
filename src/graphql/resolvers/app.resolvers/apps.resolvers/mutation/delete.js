@@ -11,6 +11,7 @@ module.exports = async (_, {_id}, {user}) => {
     if(!app) return new ApolloError('خطا في البيانات')
     return true;
   } catch (error) {
-    return new ApolloError("خطا في انشاء الحساب",error)
+    console.log("🚀 ~ module.exports= ~ err:", err)
+    return new ApolloError("خطأ في السيرفر");
   }
 };

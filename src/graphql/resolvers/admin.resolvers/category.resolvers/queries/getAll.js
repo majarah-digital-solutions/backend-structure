@@ -2,10 +2,9 @@ const { ApolloError } = require("apollo-server-express");
 const {  Branch } = require("../../../../../models");
 const { pagination } = require("../../../../../config/constants");
 
-module.exports = async (_,{ page = pagination.page, limit = pagination.limit ,title}, {user}) => {
+module.exports = async (_,{ page = pagination.page, limit = pagination.limit  ,title}, {user}) => {
 
   try {
-
     const skip = (page - 1) * limit;
     let query 
     if(title) query = {title:{$regex:title,$options: 'i'}}
@@ -13,10 +12,8 @@ module.exports = async (_,{ page = pagination.page, limit = pagination.limit ,ti
     return branches
 
   } catch (error) {
-    console.log("🚀 ~ module.exports= ~ err:", err)
-    return new ApolloError("خطأ في السيرفر");
-
+    console.error("حدث خطا اثناء جلب الفئات ", error);
+    return new ApolloError('حدث خطأ');
   }
 
-  
 };
